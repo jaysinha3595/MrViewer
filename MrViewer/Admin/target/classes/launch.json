@@ -1,0 +1,13 @@
+{
+    "configurations": [
+      {
+        "type": "java",
+        "name": "CodeLens (Launch) - fmApplication",
+        "request": "launch",
+        "mainClass": "com.intralot.l10.app.fmApplication",
+        "projectName": "file-manager",
+        "args": "--spring.profiles.active=local"
+      }
+    ]
+  }
+  
