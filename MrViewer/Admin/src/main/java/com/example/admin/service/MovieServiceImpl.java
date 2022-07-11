@@ -12,6 +12,7 @@ public class MovieServiceImpl implements MovieService{
     @Autowired
     MovieRepository movieRepository;
 
+    @Override
     public void addMovie(MovieModel movie){
         movieRepository.save(movie);
     }

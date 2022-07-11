@@ -1,0 +1,179 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+  img {
+    height: 150px;
+    width: 100%;
+  }
+
+  .item {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .item-card {
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .item-card-title {
+    font-size: 15px;
+    transition: 1s;
+    cursor: pointer;
+  }
+
+  .item-card-title i {
+    font-size: 15px;
+    transition: 1s;
+    cursor: pointer;
+    color: #ffa710
+  }
+
+  .card-title i:hover {
+    transform: scale(1.25) rotate(100deg);
+    color: #18d4ca;
+
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .card-text {
+    height: 80px;
+  }
+
+  .card::before,
+  .card::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: scale3d(0, 0, 1);
+    transition: transform .3s ease-out 0s;
+    background: rgba(255, 255, 255, 0.1);
+    content: '';
+    pointer-events: none;
+  }
+
+  .card::before {
+    transform-origin: left top;
+  }
+
+  .card::after {
+    transform-origin: right bottom;
+  }
+
+  .card:hover::before,
+  .card:hover::after,
+  .card:focus::before,
+  .card:focus::after {
+    transform: scale3d(1, 1, 1);
+  }
+</style>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="# <view-source:http://localhost/#>">Mr.Viewer</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="# <view-source:http://localhost/#>">Home</a></li>
+      <li><a href="# <view-source:http://localhost/#>">Page 1</a></li>
+      <li><a href="# <view-source:http://localhost/#>">Page 2</a></li>
+      <li><a href="# <view-source:http://localhost/#>">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<button type="button" onclick="location.href = 'http://localhost/addMovie';" class="btn btn-lg btn-primary btn-block">Add New Movie</button>
+<div class="container mt-2">
+
+  <div class="row">
+    <div class="col-md-3 col-sm-6 item">
+      <div class="card item-card card-block">
+        <h4 class="card-title text-right"><i class="material-icons">settings</i></h4>
+        <img src="https://images.indianexpress.com/2022/05/KGF2-1200by667.jpg" alt="Photo of sunset">
+        <h5 class="item-card-title mt-3 mb-3">Sierra Web Development • Owner</h5>
+        <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+        <button type="button" class="btn btn-success">Watch movie</button>
+        <button type="button" class="btn btn-danger">Remove</button>
+        <br><br>
+        <button type="button" class="btn btn-primary">View Cast</button>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 item">
+      <div class="card item-card card-block">
+        <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+        <img
+          src="https://images.thedirect.com/media/article_full/doctor-strange-multiverse-of-madness-ending-mistake.jpg?imgeng=cmpr_75/"
+          alt="Photo of sunset">
+        <h5 class="card-title  mt-3 mb-3">ProVyuh</h5>
+        <p class="card-text">This is a company that builds websites, web .</p>
+        <button type="button" class="btn btn-success">Watch movie</button>
+        <button type="button" class="btn btn-danger">Remove</button>
+        <br><br>
+        <button type="button" class="btn btn-primary">View Cast</button>
+
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 item">
+      <div class="card item-card card-block">
+        <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+        <img
+          src="https://phantom-marca.unidadeditorial.es/0a724e04ef14eb20321d3cdb31ca87e4/resize/1320/f/webp/assets/multimedia/imagenes/2022/05/28/16537530418245.jpg"
+          alt="Photo of sunset">
+        <h5 class="card-title  mt-3 mb-3">ProVyuh</h5>
+        <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+        <button type="button" class="btn btn-success">Watch movie</button>
+        <button type="button" class="btn btn-danger">Remove</button>
+        <br><br>
+        <button type="button" class="btn btn-primary">View Cast</button>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 item">
+      <div class="card item-card card-block">
+        <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+        <img src="https://alphanewscall.com/wp-content/uploads/2022/02/jurassic-world-3-1068x601.jpg"
+          alt="Photo of sunset">
+        <h5 class="card-title  mt-3 mb-3">ProVyuh</h5>
+        <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+        <button type="button" class="btn btn-success">Watch movie</button>
+        <button type="button" class="btn btn-danger">Remove</button>
+        <br><br>
+        <button type="button" class="btn btn-primary">View Cast</button>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-3 col-sm-6 item" th:each="movie: ${movies}">
+      <div class="card item-card card-block">
+        <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+        <img th:src="${movie.moviePosterUrl}"
+          alt="Photo of sunset">
+        <h5 class="card-title  mt-3 mb-3" th:text="${movie.movieName}">ProVyuh</h5>
+        <p class="card-text" th:text="${movie.movieCast}"></p>
+        <button type="button" class="btn btn-success"> <a th:href="${movie.movieUrl}" style="color: white;"> Watchmovie</a></button>
+        <a th:href="@{/deleteMovieById(movieId=${movie.movieId})}" class="btn btn-danger">Remove</a>
+      </div>
+    </div>
+
+
+
+
+  </div>
+
+</div>
+
+</html>

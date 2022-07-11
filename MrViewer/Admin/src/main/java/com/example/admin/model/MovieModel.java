@@ -1,5 +1,9 @@
 package com.example.admin.model;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import java.util.*;
 // import java.util.Objects;
 // import javax.persistence.GeneratedValue;
@@ -15,18 +19,27 @@ public class MovieModel {
     @Column(name="movieId")
     private int movieId;
 
+    @NotBlank
+    @NotNull
     @Column(name="movieName")
     private String movieName;
 
+    @NotBlank
+    @NotNull
     @Column(name="movieUrl")
     private String movieUrl;
 
+    @NotBlank
+    @NotNull
     @Column(name="moviePostUrl")
     private String moviePosterUrl;
 
     @Column(name="movieCast")
     private String movieCast;
-
+    
+    @NotBlank
+    @NotNull
+    @Size(min = 1, max = 1)
     @Column(name="duration")
     private int duration;
 

@@ -1,0 +1,70 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+      
+    </head>
+    <body>
+    
+    <div class="container">
+      <h2>Add Movie</h2>
+      <form action="#" th:action="@{/addMovie}" th:object="${movie}" method="post">
+        <div class="form-group">
+        <br>
+          <label for="email">movieName:</label>
+          <input type="text" th:field="*{movieName}" class="form-control" id="email" placeholder="Enter movieName" name="movieName">
+        </div>
+        <div class="form-group">
+          <label for="pwd">movieUrl:</label>
+          <input type="text" th:field="*{movieUrl}" class="form-control" id="pwd" placeholder="Enter movieUrl" name="movieUrl">
+        </div>
+        <div class="form-group">
+          <label for="pwd">moviePostUrl:</label>
+          <input type="text" th:field="*{moviePosterUrl}" class="form-control" id="pwd" placeholder="Enter moviePostUrl" name="moviePosterUrl">
+        </div>
+           <div class="form-group">
+        <br>
+          <label for="email">Duration:</label>
+          <input type="number" th:field="*{duration}" class="form-control" id="email" placeholder="Enter Duration" name="Duration">
+        </div>
+
+        <div class="form-group">
+          <br>
+            <label for="email">Actors:</label>
+            <input type="text" th:field="*{movieCast}" class="form-control" id="email" placeholder="Enter Duration" name="movieCast">
+          </div>
+<!-- 
+        <label for="cars">Choose actors:</label>
+        <select style="width:100%" th:field="*{movieCast}" name="cars" id="cars" multiple>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+             <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="opel">Opel</option>
+          <option value="audi">Audi</option>
+        </select>  -->
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+    
+    </body>
+    <script>
+      function submitButton(){
+        alert=("Movie Successfully added!!");
+
+        location.href = 'http://localhost/getAll';
+        
+      }
+    </script>
+    </html>
+    
+
+     <h1>sdsd</h1>
