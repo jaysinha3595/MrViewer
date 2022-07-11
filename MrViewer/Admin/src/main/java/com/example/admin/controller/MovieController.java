@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -61,14 +62,21 @@ public class MovieController {
     //     }
     // }
 
-    @RequestMapping(value = "/addMovie", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/addMovie", method = RequestMethod.GET)
     // @GetMapping("/addMovie")
     public String addMovie(@Valid @ModelAttribute MovieModel movie, Model model){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("addMovie");
         model.addAttribute("movie", movie);
-        movieService.addMovie(movie);
+        // movieService.addMovie(movie);
         return "addMovie.html";
+    }
+
+    @RequestMapping(value = "/addMovie", method = RequestMethod.POST)
+    public String saveMovie(@Valid MovieModel movieModel){
+        
+            movieService.addMovie(movieModel);
+            return "index.html";
     }
 
     @GetMapping("/getAll")
