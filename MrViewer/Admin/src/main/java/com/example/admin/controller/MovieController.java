@@ -73,10 +73,10 @@ public class MovieController {
     }
 
     @RequestMapping(value = "/addMovie", method = RequestMethod.POST)
-    public String saveMovie(@Valid MovieModel movieModel){
-        
+    public String saveMovie(@Valid MovieModel movieModel, BindingResult result, Model model){
+            
             movieService.addMovie(movieModel);
-            return "index.html";
+            return "MovieAdded.html";
     }
 
     @GetMapping("/getAll")
@@ -114,7 +114,7 @@ public class MovieController {
     @RequestMapping(value = "/deleteMovieById", method = {RequestMethod.GET})
     public String deleteMovieById(@RequestParam int movieId){
         movieService.deleteById(movieId);
-        return "index.html";
+        return "MovieDeleted.html";
     }
 
 

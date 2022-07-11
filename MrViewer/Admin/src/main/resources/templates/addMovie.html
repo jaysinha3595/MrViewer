@@ -36,7 +36,7 @@
     
     <div class="container">
       <div class="well well-lg" style="text-align: center;"><h2><b>ADD MOVIE<b><h2></div>
-      <form action="#" th:action="@{/addMovie}" th:object="${movie}" method="post">
+      <form action="#" th:action="@{/addMovie}" th:object="${movie}" method="post"  onsubmit="submitButton()">
         <div class="form-group">
         <br>
           <label for="email">movieName:</label>
@@ -82,8 +82,7 @@
       function submitButton(){
         alert=("Movie Successfully added!!");
 
-        location.href = 'http://localhost/getAll';
-        
+        location.href = 'http://localhost/Moviesadded';
       }
     </script>
     </html>
