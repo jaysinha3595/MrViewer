@@ -34,5 +34,7 @@ public class ActorServiceImpl implements ActorService{
     }
 
     @Override
-    public void updateById(Actor actorObj, long id){}
+    public void updateById(Actor actorObj, long id){
+        Optional<Actor> actor = actorRepository.findById(id);
+    }
 }

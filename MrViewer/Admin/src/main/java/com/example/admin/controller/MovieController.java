@@ -5,12 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.*;
+
+import javax.validation.Valid;
+
 import com.example.admin.model.MovieModel;
 import com.example.admin.service.MovieService;
 
@@ -58,12 +63,11 @@ public class MovieController {
 
     @RequestMapping(value = "/addMovie", method = {RequestMethod.GET, RequestMethod.POST})
     // @GetMapping("/addMovie")
-    public String addMovie(@ModelAttribute MovieModel movie, Model model){
+    public String addMovie(@Valid @ModelAttribute MovieModel movie, Model model){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("addMovie");
         model.addAttribute("movie", movie);
         movieService.addMovie(movie);
-
         return "addMovie.html";
     }
 
@@ -103,6 +107,19 @@ public class MovieController {
     public String deleteMovieById(@RequestParam int movieId){
         movieService.deleteById(movieId);
         return "index.html";
+    }
+
+
+
+    
+    @PutMapping("/updateById/{id}")
+    public ResponseEntity<?> updateById(@RequestBody MovieModel student, @PathVariable("id") int id){
+        try{
+            movieService.updateById(student, id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

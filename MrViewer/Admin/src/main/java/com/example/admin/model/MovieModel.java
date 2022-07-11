@@ -2,6 +2,7 @@ package com.example.admin.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
 import java.util.*;
@@ -21,7 +22,7 @@ public class MovieModel {
 
     @NotBlank
     @NotNull
-    @Column(name="movieName")
+    @Column(name="movieName",  unique=true)
     private String movieName;
 
     @NotBlank
@@ -37,6 +38,7 @@ public class MovieModel {
     @Column(name="movieCast")
     private String movieCast;
     
+    @Positive
     @NotBlank
     @NotNull
     @Size(min = 1, max = 1)
