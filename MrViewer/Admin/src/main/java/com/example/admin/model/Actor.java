@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="actors")
+@Table(name = "actors")
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,12 +17,10 @@ public class Actor {
     @Column(name = "actorName")
     private String actorName;
 
-    
     @NotBlank
     @NotNull
     @Column(name = "actorGender")
     private String actorGender;
-
 
     public Actor() {
     }
@@ -71,12 +69,13 @@ public class Actor {
         setActorGender(actorGender);
         return this;
     }
+
     @Override
     public String toString() {
         return "{" +
-            " actorId='" + getActorId() + "'" +
-            ", actorName='" + getActorName() + "'" +
-            ", actorGender='" + getActorGender() + "'" +
-            "}";
+                " actorId='" + getActorId() + "'" +
+                ", actorName='" + getActorName() + "'" +
+                ", actorGender='" + getActorGender() + "'" +
+                "}";
     }
 }

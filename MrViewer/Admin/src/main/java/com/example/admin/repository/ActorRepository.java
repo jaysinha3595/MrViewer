@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.admin.model.Actor;
 
 @Repository
-public interface ActorRepository extends JpaRepository<Actor, Long>{
-    
+public interface ActorRepository extends JpaRepository<Actor, Long> {
+
 }

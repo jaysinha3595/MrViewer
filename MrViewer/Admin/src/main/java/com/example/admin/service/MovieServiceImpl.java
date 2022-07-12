@@ -6,34 +6,35 @@ import org.springframework.stereotype.Service;
 import com.example.admin.model.MovieModel;
 import com.example.admin.repository.MovieRepository;
 import java.util.*;
+
 @Service
-public class MovieServiceImpl implements MovieService{
-    
+public class MovieServiceImpl implements MovieService {
+
     @Autowired
     MovieRepository movieRepository;
 
     @Override
-    public void addMovie(MovieModel movie){
+    public void addMovie(MovieModel movie) {
         movieRepository.save(movie);
     }
 
     @Override
-    public List<MovieModel> getall(){
+    public List<MovieModel> getall() {
         return movieRepository.findAll();
     }
 
     @Override
-    public Optional<MovieModel> getById(int id){
+    public Optional<MovieModel> getById(int id) {
         return movieRepository.findById(id);
     }
 
     @Override
-    public void deleteById(int id){
-        movieRepository.deleteById(id);;
+    public void deleteById(int id) {
+        movieRepository.deleteById(id);
     }
 
     @Override
-    public void updateById(MovieModel movieObj, int id){
+    public void updateById(MovieModel movieObj, int id) {
         Optional<MovieModel> movieModel = movieRepository.findById(id);
         movieModel.orElseThrow().setMovieName(movieObj.getMovieName());
         movieModel.orElseThrow().setMovieUrl(movieObj.getMovieUrl());

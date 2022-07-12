@@ -23,29 +23,24 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.admin.model.MovieModel;
 import com.example.admin.service.MovieService;
 
-
 @Controller
 @CrossOrigin("*")
 public class MovieController {
-    
+
     @Autowired
     MovieService movieService;
 
-
     @GetMapping
     @PostMapping("/")
-    public String index()  
-    {
-    ModelAndView modelAndView = new ModelAndView();
-    modelAndView.setViewName("addActor");
-    return "addActor.html";
-    }   
-
-   
+    public String index() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("addActor");
+        return "addActor.html";
+    }
 
     // @RequestMapping(value = "/addMovie", method = RequestMethod.GET)
     @GetMapping("/addMovie")
-    public String addMovie(@Valid @ModelAttribute MovieModel movie, Model model){
+    public String addMovie(@Valid @ModelAttribute MovieModel movie, Model model) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("addMovie");
         model.addAttribute("movie", movie);
@@ -53,46 +48,41 @@ public class MovieController {
     }
 
     @PostMapping("/addMovie")
-    public String saveMovie(@Valid MovieModel movieModel, BindingResult result, Model model){
-            
-            movieService.addMovie(movieModel);
-            return "MovieAdded.html";
+    public String saveMovie(@Valid MovieModel movieModel, BindingResult result, Model model) {
+
+        movieService.addMovie(movieModel);
+        return "MovieAdded.html";
     }
 
     @GetMapping("/getAll")
-    public String getAll(Model model){
-            model.addAttribute("movies", movieService.getall());
-            return "index.html";
-            
+    public String getAll(Model model) {
+        model.addAttribute("movies", movieService.getall());
+        return "index.html";
 
-        
     }
 
     @GetMapping("/getById/{id}")
-    public ResponseEntity<Optional<MovieModel>>getById(@PathVariable("id") int id){
-        try{
+    public ResponseEntity<Optional<MovieModel>> getById(@PathVariable("id") int id) {
+        try {
             Optional<MovieModel> movie = movieService.getById(id);
             return new ResponseEntity<>(movie, HttpStatus.OK);
-        }catch(Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/deleteMovieById")
-    public String deleteMovieById(@RequestParam int movieId){
+    public String deleteMovieById(@RequestParam int movieId) {
         movieService.deleteById(movieId);
         return "MovieDeleted.html";
     }
 
-
-
-    
     @PutMapping("/updateById/{id}")
-    public ResponseEntity<?> updateById(@RequestBody MovieModel student, @PathVariable("id") int id){
-        try{
+    public ResponseEntity<?> updateById(@RequestBody MovieModel student, @PathVariable("id") int id) {
+        try {
             movieService.updateById(student, id);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

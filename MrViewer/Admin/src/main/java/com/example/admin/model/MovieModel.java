@@ -1,42 +1,42 @@
 package com.example.admin.model;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
-
 @Entity
 @Table(name = "movies")
 public class MovieModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="movieId")
+    @Column(name = "movieId")
     private int movieId;
 
     @NotBlank
     @NotNull
-    @Column(name="movieName",  unique=true)
+    @Column(name = "movieName", unique = true)
     private String movieName;
 
     @NotBlank
     @NotNull
-    @Column(name="movieUrl")
+    @Column(name = "movieUrl")
     private String movieUrl;
 
     @NotBlank
     @NotNull
-    @Column(name="moviePostUrl")
+    @Column(name = "moviePostUrl")
     private String moviePosterUrl;
 
-    @Column(name="movieCast")
+    @Column(name = "movieCast")
     private String movieCast;
-    
+
     @Positive
     @NotBlank
     @NotNull
     @Size(min = 1, max = 1)
-    @Column(name="duration")
+    @Column(name = "duration")
     private int duration;
 
     public int getMovieId() {
@@ -90,8 +90,8 @@ public class MovieModel {
     public MovieModel() {
     }
 
-
-    public MovieModel(int movieId, String movieName, String movieUrl, String moviePosterUrl, String movieCast, int duration) {
+    public MovieModel(int movieId, String movieName, String movieUrl, String moviePosterUrl, String movieCast,
+            int duration) {
         this.movieId = movieId;
         this.movieName = movieName;
         this.movieUrl = movieUrl;
@@ -100,17 +100,16 @@ public class MovieModel {
         this.duration = duration;
     }
 
-
     @Override
     public String toString() {
         return "{" +
-            " movieId='" + getMovieId() + "'" +
-            ", movieName='" + getMovieName() + "'" +
-            ", movieUrl='" + getMovieUrl() + "'" +
-            ", moviePosterUrl='" + getMoviePosterUrl() + "'" +
-            ", movieCast='" + getMovieCast() + "'" +
-            ", duration='" + getDuration() + "'" +
-            "}";
+                " movieId='" + getMovieId() + "'" +
+                ", movieName='" + getMovieName() + "'" +
+                ", movieUrl='" + getMovieUrl() + "'" +
+                ", moviePosterUrl='" + getMoviePosterUrl() + "'" +
+                ", movieCast='" + getMovieCast() + "'" +
+                ", duration='" + getDuration() + "'" +
+                "}";
     }
 
 }

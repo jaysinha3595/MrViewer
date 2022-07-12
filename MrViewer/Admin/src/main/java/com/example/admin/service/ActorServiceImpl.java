@@ -8,33 +8,33 @@ import com.example.admin.repository.ActorRepository;
 import java.util.*;
 
 @Service
-public class ActorServiceImpl implements ActorService{
+public class ActorServiceImpl implements ActorService {
 
     @Autowired
     ActorRepository actorRepository;
 
     @Override
-    public void addActor(Actor actor){
+    public void addActor(Actor actor) {
         actorRepository.save(actor);
     }
 
     @Override
-    public List<Actor>getall(){
+    public List<Actor> getall() {
         return actorRepository.findAll();
     }
 
     @Override
-    public Optional<Actor> getById(long id){
+    public Optional<Actor> getById(long id) {
         return actorRepository.findById(id);
     }
 
     @Override
-    public void deleteById(long id){
+    public void deleteById(long id) {
         actorRepository.deleteById(id);
     }
 
     @Override
-    public int updateById(Actor actorObj, long id){
+    public int updateById(Actor actorObj, long id) {
         return 1;
     }
 }

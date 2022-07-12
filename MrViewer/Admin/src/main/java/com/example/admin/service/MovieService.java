@@ -7,9 +7,13 @@ import java.util.Optional;
 
 public interface MovieService {
     void addMovie(MovieModel movie);
-    List<MovieModel>getall();
+
+    List<MovieModel> getall();
+
     Optional<MovieModel> getById(int id);
+
     void deleteById(int id);
+
     void updateById(MovieModel movieObj, int id);
 
 }
