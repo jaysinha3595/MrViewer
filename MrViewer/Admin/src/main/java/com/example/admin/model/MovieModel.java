@@ -5,12 +5,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 
-import java.util.*;
-// import java.util.Objects;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
-// import javax.validation.constraints.AssertTrue;
-// import javax.validation.constraints.Max;
 
 @Entity
 @Table(name = "movies")

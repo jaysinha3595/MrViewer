@@ -86,7 +86,8 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" onclick="location.href = 'http://localhost/getAll';" href="# <view-source:http://localhost/#>">Mr.Viewer</a>
+      <a class="navbar-brand" onclick="location.href = 'http://localhost/getAll';"
+        href="# <view-source:http://localhost/#>">Mr.Viewer</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="# <view-source:http://localhost/#>">Home</a></li>
@@ -99,7 +100,7 @@
 <button type="button" onclick="location.href = 'http://localhost/addMovie';"
   class="btn btn-lg btn-primary btn-block">Add New Movie</button>
 <div class="container mt-2">
-<!-- 
+  <!-- 
   <div class="row">
     <div class="col-md-3 col-sm-6 item">
       <div class="card item-card card-block">
@@ -159,18 +160,18 @@
   </div> -->
 
 
-    <div class="col-md-3 col-sm-6 item" th:each="movie: ${movies}">
-      <div class="card item-card card-block">
-        <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
-        <img th:src="${movie.moviePosterUrl}" alt="Photo of sunset">
-        <h4 class="card-title  mt-3 mb-3" th:text="${movie.movieName}" style="font-weight:bold">ProVyuh</h4>
-        <h5><i>Movie Cast</i></h5>
-        <p class="card-text" th:text="${movie.movieCast}"></p>
-        <button type="button" class="btn btn-success"> <a th:href="${movie.movieUrl}" style="color: white;">
-            Watchmovie</a></button>
-        <a th:href="@{/deleteMovieById(movieId=${movie.movieId})}" class="btn btn-danger">Remove</a>
-      </div>
+  <div class="col-md-3 col-sm-6 item" th:each="movie: ${movies}">
+    <div class="card item-card card-block">
+      <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+      <img th:src="${movie.moviePosterUrl}" alt="Photo of sunset">
+      <h4 class="card-title  mt-3 mb-3" th:text="${movie.movieName}" style="font-weight:bold">ProVyuh</h4>
+      <h5><i>Movie Cast</i></h5>
+      <p class="card-text" th:text="${movie.movieCast}"></p>
+      <button type="button" class="btn btn-success"> <a th:href="${movie.movieUrl}" style="color: white;">
+          Watchmovie</a></button>
+      <a th:href="@{/deleteMovieById(movieId=${movie.movieId})}" class="btn btn-danger">Remove</a>
     </div>
+  </div>
 
 
 

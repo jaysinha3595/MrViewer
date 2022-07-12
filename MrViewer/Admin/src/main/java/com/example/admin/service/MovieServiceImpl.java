@@ -34,7 +34,6 @@ public class MovieServiceImpl implements MovieService{
 
     @Override
     public void updateById(MovieModel movieObj, int id){
-        // MovieModel movie = movieRepository.getOne
         Optional<MovieModel> movieModel = movieRepository.findById(id);
         movieModel.orElseThrow().setMovieName(movieObj.getMovieName());
         movieModel.orElseThrow().setMovieUrl(movieObj.getMovieUrl());

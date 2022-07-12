@@ -10,6 +10,6 @@ public interface ActorService {
     List<Actor>getall();
     Optional<Actor> getById(long id);
     void deleteById(long id);
-    void updateById(Actor actorObj, long id);
+    int updateById(Actor actorObj, long id);
 
 }
