@@ -168,8 +168,9 @@
       <h5><i>Movie Cast</i></h5>
       <p class="card-text" th:text="${movie.movieCast}"></p>
       <button type="button" class="btn btn-success"> <a th:href="${movie.movieUrl}" style="color: white;">
-          Watchmovie</a></button>
+          Watch Movie</a></button>
       <a th:href="@{/deleteMovieById(movieId=${movie.movieId})}" class="btn btn-danger">Remove</a>
+      <a th:href="@{/updateMovieById(movieId=${movie.movieId})}" class="btn btn-default" style="width: 100%">Update</a>
     </div>
   </div>
 

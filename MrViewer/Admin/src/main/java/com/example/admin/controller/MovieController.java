@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.example.admin.model.MovieModel;
 import com.example.admin.service.MovieService;
+import com.fasterxml.jackson.annotation.JsonCreator.Mode;
 
 @Controller
 @CrossOrigin("*")
@@ -85,6 +86,22 @@ public class MovieController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/updateMovieById")
+    public String updateMovieById(@RequestParam("movieId") int movieId, Model model) {
+        
+        model.addAttribute("movie", movieService.getById(movieId));
+        return "updateMovie.html";
+    }
+
+    @PostMapping("/updateMovieById")
+    public String updateMovie(@RequestParam("movieId") int movieId, MovieModel movieModel, BindingResult result,
+            Model model) {
+
+        movieService.updateById(movieModel, movieId);
+        movieService.addMovie(movieModel);
+        return "MovieUpdated.html";
     }
 
 }
